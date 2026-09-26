@@ -67,7 +67,21 @@ docs/NOTES.md           实测数据与踩坑记录
 - **开发板**：QCS8550，Ubuntu 22.04 及以上（glibc ≥ 2.34），有高通 FastRPC（`libcdsprpc.so`、`/dev/adsprpc-smd`），
   Python 3 并安装 `pip install -r requirements-device.txt`。
 
-## 生成模型部署包
+## 使用预编译模型（无需 AI Hub 账号）
+
+[Releases](https://github.com/zhouzengming/qwen3-reranker-qnn/releases) 页面提供已经编译好的模型包
+`qwen3-reranker-0.6b-qcs8550-L4096-fp16.tar`（QCS8550、4096 token、fp16，约 1.5 GB）。
+它和板上验证过的文件完全一致，用它就不需要做导出和 AI Hub 编译：
+
+```bash
+# 只需要 Python 3（标准库即可）。把 QAIRT SDK 2.50.0 解压到 qairt/ 目录（见 qairt/README.md），下载模型包后：
+python3 export/make_deploy.py --prebuilt qwen3-reranker-0.6b-qcs8550-L4096-fp16.tar \
+    --qairt-sdk qairt/<SDK 目录> --out dist/deploy
+```
+
+模型包里已经带了预编译的 `lib/libqnn_reranker.so` 和自检用的参考数据。高通 SDK 的运行库不在包里，仍然需要从本地 SDK 拷贝。
+
+## 自己生成模型部署包
 
 ```bash
 pip install -r requirements-export.txt
