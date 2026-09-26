@@ -1,0 +1,33 @@
+# 流水线生成的产物（体积大）
+work/
+dist/
+*.onnx
+*.onnx.data
+model.data
+*.bin
+*.npy
+*.part
+*.done.json
+
+# 高通 QAIRT SDK：用户自行放入 qairt/，只提交其中的指引文档
+qairt/*
+!qairt/README.md
+
+# 由 export/make_deploy.py 从本地 SDK 拷贝的文件，不允许提交
+device/qnn_libs/
+device/include/
+device/tools/qnn-*
+device/tools/lib/
+device/tools/dsp/
+device/lib/
+device/models/
+device/tokenizer/
+device/variants.json
+device/tests/
+
+# Python / 构建产物
+__pycache__/
+*.pyc
+.venv/
+venv/
+build/

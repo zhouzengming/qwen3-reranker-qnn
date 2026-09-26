@@ -1,0 +1,6 @@
+# 板端（aarch64 Linux）。
+numpy
+tokenizers
+# rerank 服务（device/serve_reranker.py）
+fastapi
+uvicorn

@@ -1,0 +1,10 @@
+# 主机端（x86_64 Linux）：导出、验证、在 Qualcomm AI Hub 上编译。
+# torch 用 CPU 版即可，例如：pip install torch --index-url https://download.pytorch.org/whl/cpu
+# 验证时使用的版本：torch 2.14.0、transformers 5.17.0、onnx 1.23.0、onnxruntime 1.30.0、qai-hub 0.55.0、Python 3.12
+torch>=2.9
+transformers==5.17.0     # modeling.py 依赖 Qwen3 注意力的内部实现，其他版本可能不兼容
+onnx>=1.17
+onnxruntime>=1.20
+qai-hub==0.55.0          # aihub_download.py 用到了该版本的内部凭证接口
+huggingface_hub
+ziglang                  # 可选：交叉编译板端库（make_deploy.py --cross-compile）
