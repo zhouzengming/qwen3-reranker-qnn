@@ -61,8 +61,9 @@ docs/NOTES.md           实测数据与踩坑记录
   内存约 16 GB，磁盘约 15 GB。
 - **Qualcomm AI Hub** 账号（[workbench.aihub.qualcomm.com](https://workbench.aihub.qualcomm.com)）：
   执行 `qai-hub configure --api_token <你的 token>`。
-- **QAIRT SDK**（[Qualcomm AI Runtime](https://www.qualcomm.com/developer/software/qualcomm-ai-engine-direct-sdk)），
-  版本必须**和 AI Hub 编译时用的一致**（本项目用的是 2.50.0）。SDK 里的运行库、头文件和工具受高通许可证约束，
+- **QAIRT SDK**（[Qualcomm AI Runtime](https://www.qualcomm.com/developer/software/qualcomm-ai-engine-direct-sdk)，
+  本项目用的 2.50.0.260828 可直接下载：[v2.50.0.260828.zip](https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.50.0.260828/v2.50.0.260828.zip)，约 2.6 GB），
+  版本必须**和 AI Hub 编译时用的一致**。SDK 里的运行库、头文件和工具受高通许可证约束，
   **不包含在本仓库中**：请下载后解压到仓库的 [`qairt/`](qairt/README.md) 目录，由 `make_deploy.py` 从中拷贝需要的文件。
 - **开发板**：QCS8550，Ubuntu 22.04 及以上（glibc ≥ 2.34），有高通 FastRPC（`libcdsprpc.so`、`/dev/adsprpc-smd`），
   Python 3 并安装 `pip install -r requirements-device.txt`。

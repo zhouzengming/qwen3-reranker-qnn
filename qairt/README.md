@@ -5,11 +5,17 @@
 
 ## 1. 下载 SDK
 
-- 下载地址：[Qualcomm AI Runtime SDK](https://www.qualcomm.com/developer/software/qualcomm-ai-engine-direct-sdk)
-  （需要登录高通开发者账号，并同意许可协议）。
-- **版本必须和 Qualcomm AI Hub 编译模型时使用的版本一致。** 本项目基于 **2.50.0** 构建和验证。
-  版本不一致时，开发板加载 context binary 可能失败。
+本项目基于 **QAIRT 2.50.0.260828** 构建和验证，直接下载（约 2.6 GB）：
+
+- **https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.50.0.260828/v2.50.0.260828.zip**
+
+也可以在 [Qualcomm Software Center](https://softwarecenter.qualcomm.com/)（搜索 "Qualcomm AI Runtime"）或
+[产品页面](https://www.qualcomm.com/developer/software/qualcomm-ai-engine-direct-sdk) 下载。
+使用前请阅读并遵守 SDK 附带的许可协议（`LICENSE.pdf`）。
+
+- **版本必须和 Qualcomm AI Hub 编译模型时使用的版本一致。** 版本不一致时，开发板加载 context binary 可能失败。
   可以在 AI Hub 编译任务的日志里确认版本：日志中会出现 `/qairt_sdk/default/2.50.0/...` 这样的路径。
+  AI Hub 升级默认 SDK 后，请下载对应版本（把链接中的两处版本号换成新的完整版本号）。
 
 ## 2. 解压到本目录
 
@@ -39,7 +45,8 @@ qairt/
 
 ```bash
 cd qairt
-unzip ~/Downloads/v2.50.0.260828.zip     # 文件名以实际下载的为准
+wget https://softwarecenter.qualcomm.com/api/download/software/sdks/Qualcomm_AI_Runtime_Community/All/2.50.0.260828/v2.50.0.260828.zip
+unzip -q v2.50.0.260828.zip && rm v2.50.0.260828.zip    # 解压后是 qairt/qairt/2.50.0.260828/
 ```
 
 判断方法：SDK 根目录下应该有 `include/QNN/QnnInterface.h` 和 `sdk.yaml` 这两个文件。
